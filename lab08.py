@@ -1,29 +1,22 @@
 #Leslie Huh
 #Lab 08
-prime_list=[]
-d=2
-number = 0
-def is_prime(n):
-    global d
-    print(d)
-    if n%d == 0:
-        return False
-    elif n == d:
-        return True
-    else:
-        d+=1
-        is_prime(n)
-    
-def find_prime():
-    global number
-    print(number)
-    if len(prime_list)==10001:
-        return prime_list[10000]
-    else:
-        if is_prime(number) == True:
-            prime_list.append(number)
-        else:
-            number +=1
-            find_prime() 
+""" This for loop finds the 10001st prime number.
 
-print(find_prime())
+    The for loop determines if a number is a prime numebr or not by brute forcing
+    division. If the number is a prime number, the count increases. If the count is
+    10001, then it is the 10001st prime number. It then prints the number """
+
+
+count = 3
+x = 4
+while count <= 10001:
+    for i in range (2, x+1):
+        if x%i==0 and x != i:
+            x += 1
+            break
+        elif x==i:
+            count += 1
+            x += 1
+
+print (x-1)
+
